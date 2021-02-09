@@ -1,36 +1,152 @@
-<form (ngSubmit)="sendSimulation()">
+<form name="form" #f="ngForm" (ngSubmit)="f.form.valid && sendSimulation()" novalidate class="feedback-form">
   <div class="form-row align-items-center">
+    <!-- Simulation Name -->
     <div class="col-sm-3 my-1">
       <label for="inlineFormSimName">Simulation Name</label>
-      <input type="text" class="form-control" id="inlineFormSimName" placeholder="Type Name" [(ngModel)]="modelSim.name" name="simulationName"/>
+      <input
+        type="text"
+        class="form-control"
+        id="inlineFormSimName"
+        placeholder="Type Name"
+        name="simulationName"
+        [(ngModel)]="modelSim.name"
+        #name="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && name.invalid }"
+        required/>
+      <!-- input validation group -->
+      <div *ngIf="f.submitted && name.invalid" class="invalid-input">
+        <!-- individual validation errors -->
+        <div *ngIf="name.errors?.required">Field is required</div>
+      </div>
     </div>
+    <!-- No. of Population -->
     <div class="col-sm-3 my-1">
       <label  for="inlineFormPopulationName">No. of Population</label>
-      <input type="number" class="form-control" id="inlineFormPopulationName"  [(ngModel)]="modelSim.population" name="population"/>
+      <input
+        type="number"
+        class="form-control"
+        id="inlineFormPopulationName"
+        name="population"
+        [(ngModel)]="modelSim.population"
+        #population="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && population.invalid }"
+        required min="0" pattern="^[1-9][0-9]*$"/>
+      <!-- input validation group -->
+      <div *ngIf="f.submitted && population.invalid" class="invalid-input">
+        <!-- individual validation errors -->
+        <div *ngIf="population.errors">Field needs to be grater than 0</div>
+      </div>
     </div>
+    <!-- No. of Infected -->
     <div class="col-sm-3 my-1">
       <label for="inlineFormInfectionName">No. of Infected</label>
-      <input type="number" class="form-control" id="inlineFormInfectionName" [(ngModel)]="modelSim.infected" name="infected"/>
+      <input
+        type="number"
+        class="form-control"
+        id="inlineFormInfectionName"
+        name="infected"
+        [(ngModel)]="modelSim.infected"
+        #infected="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && infected.invalid }"
+        required min="0" pattern="^[1-9][0-9]*$"/>
+      <!-- input validation group -->
+      <div *ngIf="f.submitted && infected.invalid" class="invalid-input">
+        <!-- individual validation errors -->
+        <div *ngIf="infected.errors">Field needs to be grater than 0</div>
+      </div>
     </div>
+    <!-- R - Factor -->
     <div class="col-sm-3 my-1">
       <label  for="inlineFormRfactorName">R - Factor</label>
-      <input type="number" class="form-control" id="inlineFormRfactorName" name="rfactor" [(ngModel)]="modelSim.rfactor" />
+      <input
+        type="number"
+        class="form-control"
+        id="inlineFormRfactorName"
+        name="rfactor"
+        [(ngModel)]="modelSim.rfactor"
+        #rfactor="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && rfactor.invalid }"
+        required min="0" pattern="^\s*(?=.*[1-9])\d*(?:\.\d{1,2})?\s*$"/>
+      <!-- input validation group -->
+      <div *ngIf="f.submitted && rfactor.invalid" class="invalid-input">
+        <!-- individual validation errors -->
+        <div *ngIf="rfactor.errors">Field needs to be grater than 0</div>
+        <div *ngIf="rfactor.errors?.pattern">Two decimal places only</div>
+      </div>
     </div>
+    <!-- Mortality Index -->
     <div class="col-sm-3 my-1">
       <label  for="inlineFormMortalityName">Mortality Index</label>
-      <input type="number" class="form-control" id="inlineFormMortalityName"name="mortality" [(ngModel)]="modelSim.mortality"/>
+      <input
+        type="number"
+        step=".01"
+        class="form-control"
+        id="inlineFormMortalityName"
+        name="mortality"
+        [(ngModel)]="modelSim.mortality"
+        #mortality="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && mortality.invalid }"
+        required min="0" pattern="^\s*(?=.*[1-9])\d*(?:\.\d{1,2})?\s*$"/>
+      <!-- input validation group -->
+      <div *ngIf="f.submitted && mortality.invalid" class="invalid-input">
+        <!-- individual validation errors -->
+        <div *ngIf="mortality.errors">Field needs to be grater than 0</div>
+        <div *ngIf="mortality.errors?.pattern">Two decimal places only</div>
+      </div>
     </div>
+    <!-- Days To Heal -->
     <div class="col-sm-3 my-1">
       <label  for="inlineFormHealName">Days To Heal</label>
-      <input type="number" class="form-control" id="inlineFormHealName"name="daysToHeal" [(ngModel)]="modelSim.daysToHeal"/>
+      <input
+        type="number"
+        class="form-control"
+        id="inlineFormHealName"
+        name="daysToHeal"
+        [(ngModel)]="modelSim.daysToHeal"
+        #heal="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && heal.invalid }"
+        required min="0" pattern="^[1-9][0-9]*$"/>
+      <!-- input validation group -->
+      <div *ngIf="f.submitted && heal.invalid" class="invalid-input">
+        <!-- individual validation errors -->
+        <div *ngIf="heal.errors">Field needs to be grater than 0</div>
+      </div>
     </div>
+    <!-- Days To Die -->
     <div class="col-sm-3 my-1">
       <label  for="inlineFormDieName">Days To Die</label>
-      <input type="number" class="form-control" id="inlineFormDieName"  name="daysToDie" [(ngModel)]="modelSim.daysToDie"/>
+      <input
+        type="number"
+        class="form-control"
+        id="inlineFormDieName"
+        name="daysToDie"
+        [(ngModel)]="modelSim.daysToDie"
+        #die="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && die.invalid }"
+        required min="0" pattern="^[1-9][0-9]*$"/>
+      <!-- input validation group -->
+      <div *ngIf="f.submitted && die.invalid" class="invalid-input">
+        <!-- individual validation errors -->
+        <div *ngIf="die.errors">Field needs to be grater than 0</div>
+      </div>
     </div>
+    <!-- No. of days to simulate-->
     <div class="col-sm-3 my-1">
       <label  for="inlineFormSimulationName">Simulation Days</label>
-      <input type="number" class="form-control" id="inlineFormSimulationName"  name="daysOfSimulation" [(ngModel)]="modelSim.daysToSimulate"/>
+      <input
+        type="number"
+        class="form-control"
+        id="inlineFormSimulationName"
+        name="daysOfSimulation"
+        [(ngModel)]="modelSim.daysToSimulate"
+        #simdays="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && simdays.invalid }"
+        required min="0" pattern="^[1-9][0-9]*$"/>
+      <!-- input validation group -->
+      <div *ngIf="f.submitted && simdays.invalid" class="invalid-input">
+        <!-- individual validation errors -->
+        <div *ngIf="simdays.errors">Field needs to be grater than 0 </div>
+      </div>
     </div>
     <div class="col-auto my-1">
       <button type="submit" class="btn btn-primary">Submit</button>
