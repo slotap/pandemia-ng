@@ -1,3 +1,4 @@
+<div class="container">
 <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && sendSimulation()" novalidate class="feedback-form">
   <div class="form-row align-items-center">
     <!-- Simulation Name -->
@@ -149,7 +150,9 @@
       </div>
     </div>
     <div class="col-auto my-1">
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-warning pull-right">Submit</button>
     </div>
   </div>
 </form>
+<app-sliders></app-sliders>
+</div>
