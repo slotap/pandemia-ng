@@ -14,6 +14,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { SlidersComponent } from './home/sliders/sliders.component';
 import { GraphComponent } from './home/graph/graph.component';
 import { ChartsModule} from "ng2-charts";
+import {NgxSliderModule} from "@angular-slider/ngx-slider";
 
 const appRoutes : Routes = [
   {
@@ -56,7 +57,8 @@ const appRoutes : Routes = [
     RouterModule.forRoot(appRoutes, {enableTracing: true}),
     HttpClientModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    NgxSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

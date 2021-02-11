@@ -10,7 +10,8 @@ export class SlidersComponent implements OnInit {
   value: number = 100;
   options: Options = {
     floor: 0,
-    ceil: 250};
+    ceil: 250,
+    showSelectionBar: true};
 
   constructor() { }
 

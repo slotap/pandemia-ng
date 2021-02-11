@@ -1,0 +1,10 @@
+::ng-deep,
+.custom-slider .ngx-slider .ngx-slider-bubble {
+    font-size: 10px !important;
+  }
+.slider-label {
+  font-size: 15px;
+}
+.slider-legend {
+  font-weight: bold;
+}
