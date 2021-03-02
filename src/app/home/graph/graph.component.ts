@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ChartType } from 'chart.js'
+
 
 @Component({
   selector: 'app-graph',
@@ -22,7 +24,7 @@ export class GraphComponent implements OnInit {
 
   public graphLegend = true;
 
-  public lineChartType = 'line';
+  public lineChartType : ChartType = 'line';
 
 
   constructor() { }

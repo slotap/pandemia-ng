@@ -10,7 +10,7 @@
         id="inlineFormSimName"
         placeholder="Type Name"
         name="simulationName"
-        [(ngModel)]="modelSim.name"
+        [(ngModel)]="modelSim.title"
         #name="ngModel"
         [ngClass]="{ 'is-invalid': f.submitted && name.invalid }"
         required/>
@@ -61,10 +61,11 @@
       <label  for="inlineFormRfactorName">R - Factor</label>
       <input
         type="number"
+        step=".01"
         class="form-control"
         id="inlineFormRfactorName"
         name="rfactor"
-        [(ngModel)]="modelSim.rfactor"
+        [(ngModel)]="modelSim.reproductionNumber"
         #rfactor="ngModel"
         [ngClass]="{ 'is-invalid': f.submitted && rfactor.invalid }"
         required min="0" pattern="^\s*(?=.*[1-9])\d*(?:\.\d{1,2})?\s*$"/>
@@ -84,7 +85,7 @@
         class="form-control"
         id="inlineFormMortalityName"
         name="mortality"
-        [(ngModel)]="modelSim.mortality"
+        [(ngModel)]="modelSim.mortalityIndex"
         #mortality="ngModel"
         [ngClass]="{ 'is-invalid': f.submitted && mortality.invalid }"
         required min="0" pattern="^\s*(?=.*[1-9])\d*(?:\.\d{1,2})?\s*$"/>
