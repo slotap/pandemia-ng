@@ -1,0 +1,6 @@
+::ng-deep
+  .custom-slider .ng5-slider .ng5-slider-bubble {
+        font-size: 5px !important;
+    }
+
+

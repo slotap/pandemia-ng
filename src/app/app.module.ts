@@ -11,6 +11,10 @@ import { RouterModule, Routes} from "@angular/router";
 import { SavedSimulationsComponent } from './saved-simulations/saved-simulations.component';
 import { FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { SlidersComponent } from './home/sliders/sliders.component';
+import { GraphComponent } from './home/graph/graph.component';
+import { ChartsModule} from "ng2-charts";
+import {NgxSliderModule} from "@angular-slider/ngx-slider";
 
 const appRoutes : Routes = [
   {
@@ -43,14 +47,18 @@ const appRoutes : Routes = [
     FeedbackComponent,
     HomeComponent,
     NotFoundComponent,
-    SavedSimulationsComponent
+    SavedSimulationsComponent,
+    SlidersComponent,
+    GraphComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes, {enableTracing:true}),
+    RouterModule.forRoot(appRoutes, {enableTracing: true}),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ChartsModule,
+    NgxSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

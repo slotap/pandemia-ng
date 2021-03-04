@@ -1,0 +1,40 @@
+<div class="container-custom">
+  <!--  content -->
+  <div class="row" style="margin-top: 28px;">
+    <!-- Sliders Menu -->
+    <div class="col-md-3 ">
+      <div class="custom-slider">
+        <!-- Sliders List -->
+        <p ><b>No. of Population</b>
+        <ngx-slider [(value)]="value" [options]="options"></ngx-slider>
+        </p>
+        <p><b>No. of Infected</b>
+          <ngx-slider [(value)]="value" [options]="options"></ngx-slider>
+        </p>
+        <p><b>R- Factor</b>
+          <ngx-slider [(value)]="value" [options]="options"></ngx-slider>
+        </p>
+        <p><b>Mortality Index</b>
+          <ngx-slider [(value)]="value" [options]="options"></ngx-slider>
+        </p>
+        <p><b>Days To Heal</b>
+          <ngx-slider [(value)]="value" [options]="options"></ngx-slider>
+        </p>
+        <p><b>Days To Die</b>
+          <ngx-slider [(value)]="value" [options]="options"></ngx-slider>
+        </p>
+        <p><b>Simulation Days</b>
+          <ngx-slider [(value)]="value" [options]="options"></ngx-slider>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+    <!-- Graph Panel -->
+    <div class="col-md-8">
+          <div class="row">
+        <app-graph >
+        </app-graph>
+      </div>
+    </div>
+  </div>
+</div>
