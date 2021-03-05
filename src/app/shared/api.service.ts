@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {SimulationInputModel} from "../home/home.component";
 import {Observable} from "rxjs";
 import {OutputSimulationData} from "../home/model/output-simulation-data";
+import {SimulationInputModel} from "../home/model/simulation-input-model";
 
 @Injectable({
   providedIn: 'root'

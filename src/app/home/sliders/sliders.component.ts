@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Options } from '@angular-slider/ngx-slider';
+import {OutputSimulationData} from "../model/output-simulation-data";
+
 
 @Component({
   selector: 'app-sliders',
@@ -7,11 +9,17 @@ import { Options } from '@angular-slider/ngx-slider';
   styleUrls: ['./sliders.component.css']
 })
 export class SlidersComponent implements OnInit {
-  value: number = 100;
+  // @ts-ignore
+  @Input() public outputData : OutputSimulationData;
+
   options: Options = {
     floor: 0,
-    ceil: 250,
-    showSelectionBar: true};
+    ceil: 100000,
+    step: 1000,
+    showSelectionBar: true,
+    translate: (value: number): string => {
+      return  value/1000 + 'k';
+    }};
 
   constructor() { }
 

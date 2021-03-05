@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { ChartType } from 'chart.js'
+import {OutputSimulationData} from "../model/output-simulation-data";
 
 
 @Component({
@@ -8,6 +9,9 @@ import { ChartType } from 'chart.js'
   styleUrls: ['./graph.component.css']
 })
 export class GraphComponent implements OnInit {
+  // @ts-ignore
+  @Input() public outputData : OutputSimulationData;
+
   public graphData = [
     {data: [10,65,88,90,102,111,114,116,168], label: "People Infected"},
     {data: [1,6,9,6,9,15,22,45,55,66,77,88,], label: "People Prone To Infection"},

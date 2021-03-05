@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ApiService} from "../shared/api.service";
 import {OutputSimulationData} from "./model/output-simulation-data";
+import {SimulationInputModel} from "./model/simulation-input-model";
 
 
 @Component({
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
     daysToSimulate:0,
   }
 
-  outputSim : OutputSimulationData = {
+ public outputSim : OutputSimulationData = {
     id : 0,
     title : '',
     population : 0,
@@ -52,13 +53,4 @@ export class HomeComponent implements OnInit {
   }
 }
 
-export interface SimulationInputModel {
-  title:string;
-  population:number;
-  infected:number;
-  reproductionNumber:number;
-  mortalityIndex:number;
-  daysToHeal:number;
-  daysToDie:number;
-  daysToSimulate:number;
-}
+
