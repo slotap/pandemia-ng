@@ -15,6 +15,7 @@ import { SlidersComponent } from './home/sliders/sliders.component';
 import { GraphComponent } from './home/graph/graph.component';
 import { ChartsModule} from "ng2-charts";
 import {NgxSliderModule} from "@angular-slider/ngx-slider";
+import {ApiService} from "./shared/api.service";
 
 const appRoutes : Routes = [
   {
@@ -60,7 +61,7 @@ const appRoutes : Routes = [
     ChartsModule,
     NgxSliderModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

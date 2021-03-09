@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ApiService} from "../shared/api.service";
+import {Component, OnInit} from '@angular/core';
 import {OutputSimulationData} from "./model/output-simulation-data";
 import {SimulationInputModel} from "./model/simulation-input-model";
+import {ApiService} from "../shared/api.service";
 
 
 @Component({
