@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {OutputSimulationData} from "./model/output-simulation-data";
 import {SimulationInputModel} from "./model/simulation-input-model";
 import {ApiService} from "../shared/api.service";
+import {SlidersComponent} from "./sliders/sliders.component";
 
 
 @Component({
@@ -34,6 +35,9 @@ export class HomeComponent implements OnInit {
     outputData : []
   };
 
+// @ts-ignore
+  @ViewChild(SlidersComponent) slidersComponent : SlidersComponent;
+
   constructor(private apiService : ApiService) { }
 
   ngOnInit(): void {
@@ -51,6 +55,10 @@ export class HomeComponent implements OnInit {
       }
     );
   }
+  saveSimulation(){
+    this.slidersComponent.saveSimulation();
+  }
+
 }
 
 

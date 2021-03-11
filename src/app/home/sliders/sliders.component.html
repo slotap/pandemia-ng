@@ -6,10 +6,18 @@
       <div class="custom-slider">
         <!-- Sliders List -->
         <p ><b>No. of Population</b>
-        <ngx-slider [(value)]="outputData.population" [options]="options" (userChange)="updateSimulation()"></ngx-slider>
+        <ngx-slider  [(value)]="outputData.population" (userChange)="updateSimulation()" [options]="{
+                                                                                            floor: 0,
+                                                                                            ceil: 10000,
+                                                                                            step: 1,
+                                                                                            showSelectionBar: true}" ></ngx-slider>
         </p>
         <p><b>No. of Infected</b>
-          <ngx-slider [(value)]="outputData.infected" [options]="options" (userChange)="updateSimulation()"></ngx-slider>
+          <ngx-slider [(value)]="outputData.infected" (userChange)="updateSimulation()" [options]=" {
+                                                                                            floor: 0,
+                                                                                            ceil: this.outputData.population,
+                                                                                            step: 1,
+                                                                                            showSelectionBar: true}"></ngx-slider>
         </p>
         <p><b>R- Factor</b>
           <ngx-slider [(value)]="outputData.reproductionNumber" (userChange)="updateSimulation()" [options]="{

@@ -13,7 +13,7 @@ export class SlidersComponent implements OnInit {
   // @ts-ignore
   @Input() public outputData : OutputSimulationData;
 
-  options: Options = {
+  optionsPopulation: Options = {
     floor: 0,
     ceil: 10000,
     step: 1,
@@ -38,5 +38,15 @@ export class SlidersComponent implements OnInit {
       }
     );
   }
-
+  saveSimulation() {
+    this.apiService.saveSimulation(this.outputData.id, this.apiService.convertToInputData(this.outputData)).subscribe(
+      res => {
+        alert("Simulation saved")
+      },
+      err => {
+        alert("Ups, something went wrong while sending simulation data.")
+        location.reload();
+      }
+    );
+  }
 }

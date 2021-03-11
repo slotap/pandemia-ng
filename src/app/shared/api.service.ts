@@ -10,6 +10,7 @@ import {SimulationInputModel} from "../home/model/simulation-input-model";
 export class ApiService {
   private BASE_URL = "http://localhost:8080/api";
   private  SIMULATION_URL = this.BASE_URL + "/simulations";
+  private  SAVE_SIMULATION_URL = this.BASE_URL + "/save";
 
   constructor(private http : HttpClient) { }
 
@@ -19,6 +20,9 @@ export class ApiService {
 
   updateSimulation(id : number, inputData : SimulationInputModel) : Observable<OutputSimulationData> {
     return this.http.put<OutputSimulationData>(this.SIMULATION_URL + "/" + id, inputData);
+  }
+  saveSimulation(id : number, inputData : SimulationInputModel)  {
+    return this.http.put<OutputSimulationData>(this.SAVE_SIMULATION_URL + "/" + id, inputData);
   }
 
   convertToInputData(outputData : OutputSimulationData) : SimulationInputModel{

@@ -153,10 +153,12 @@
     <div class="col-auto my-1">
       <button type="submit" class="btn btn-warning pull-right">Submit</button>
     </div>
+    <div class="col-auto my-1">
+      <button type="button" class="btn btn-warning pull-right" (click)="saveSimulation()">Save Changes</button>
+    </div>
   </div>
 </form>
 </div>
 <div>
-  <app-sliders [outputData] = outputSim></app-sliders>
-
+  <app-sliders [outputData] = outputSim ></app-sliders>
 </div>
