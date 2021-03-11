@@ -16,4 +16,22 @@ export class ApiService {
   postSimulation(inputData : SimulationInputModel) : Observable<OutputSimulationData> {
     return this.http.post<OutputSimulationData>(this.SIMULATION_URL, inputData);
   }
+
+  updateSimulation(id : number, inputData : SimulationInputModel) : Observable<OutputSimulationData> {
+    return this.http.put<OutputSimulationData>(this.SIMULATION_URL + "/" + id, inputData);
+  }
+
+  convertToInputData(outputData : OutputSimulationData) : SimulationInputModel{
+    let inputData : SimulationInputModel;
+    return inputData = {
+      daysToDie: outputData.daysToDie,
+      daysToHeal: outputData.daysToHeal,
+      daysToSimulate: outputData.daysToSimulate,
+      infected: outputData.infected,
+      mortalityIndex: outputData.mortalityIndex,
+      population: outputData.population,
+      reproductionNumber: outputData.reproductionNumber,
+      title: outputData.title,
+    }
+  }
 }

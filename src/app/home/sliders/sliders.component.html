@@ -6,45 +6,45 @@
       <div class="custom-slider">
         <!-- Sliders List -->
         <p ><b>No. of Population</b>
-        <ngx-slider [(value)]="outputData.population" [options]="options"></ngx-slider>
+        <ngx-slider [(value)]="outputData.population" [options]="options" (userChange)="updateSimulation()"></ngx-slider>
         </p>
         <p><b>No. of Infected</b>
-          <ngx-slider [(value)]="outputData.infected" [options]="options"></ngx-slider>
+          <ngx-slider [(value)]="outputData.infected" [options]="options" (userChange)="updateSimulation()"></ngx-slider>
         </p>
         <p><b>R- Factor</b>
-          <ngx-slider [(value)]="outputData.rFactor" [options]="{
-                                                              floor: 0,
-                                                              step: 1,
-                                                              ceil: 100,
-                                                              showSelectionBar: true}"></ngx-slider>
+          <ngx-slider [(value)]="outputData.reproductionNumber" (userChange)="updateSimulation()" [options]="{
+                                                                                                    floor: 0,
+                                                                                                    step: 1,
+                                                                                                    ceil: 100,
+                                                                                                    showSelectionBar: true}"></ngx-slider>
         </p>
         <p><b>Mortality Index</b>
-          <ngx-slider [(value)]="outputData.mortalityIndex" [options]="{
-                                                              floor: 0,
-                                                              step: 0.1,
-                                                              ceil: 1,
-                                                              showSelectionBar: true}"></ngx-slider>
+          <ngx-slider [(value)]="outputData.mortalityIndex" (userChange)="updateSimulation()" [options]="{
+                                                                                                floor: 0,
+                                                                                                step: 0.1,
+                                                                                                ceil: 1,
+                                                                                                showSelectionBar: true}"></ngx-slider>
         </p>
         <p><b>Days To Heal</b>
-          <ngx-slider [(value)]="outputData.daysToHeal" [options]="{
-                                                              floor: 0,
-                                                              step: 1,
-                                                              ceil: 100,
-                                                              showSelectionBar: true}"></ngx-slider>
+          <ngx-slider [(value)]="outputData.daysToHeal" (userChange)="updateSimulation()" [options]="{
+                                                                                                floor: 0,
+                                                                                                step: 1,
+                                                                                                ceil: 100,
+                                                                                                showSelectionBar: true}"></ngx-slider>
         </p>
         <p><b>Days To Die</b>
-          <ngx-slider  [(value)]="outputData.daysToDie" [options]="{
-                                                              floor: 0,
-                                                              step: 1,
-                                                              ceil: 100,
-                                                              showSelectionBar: true}"></ngx-slider>
+          <ngx-slider  [(value)]="outputData.daysToDie" (userChange)="updateSimulation()" [options]="{
+                                                                                              floor: 0,
+                                                                                              step: 1,
+                                                                                              ceil: 100,
+                                                                                              showSelectionBar: true}"></ngx-slider>
         </p>
         <p><b>Simulation Days</b>
-          <ngx-slider [(value)]="outputData.daysToSimulate" [options]="{
-                                                              floor: 0,
-                                                              step: 1,
-                                                              ceil: 360,
-                                                              showSelectionBar: true}"></ngx-slider>
+          <ngx-slider [(value)]="outputData.daysToSimulate" (userChange)="updateSimulation()" [options]="{
+                                                                                                floor: 0,
+                                                                                                step: 1,
+                                                                                                ceil: 360,
+                                                                                                showSelectionBar: true}"></ngx-slider>
         </p>
       </div>
     </div>

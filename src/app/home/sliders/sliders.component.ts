@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { Options } from '@angular-slider/ngx-slider';
 import {OutputSimulationData} from "../model/output-simulation-data";
+import {ApiService} from "../../shared/api.service";
 
 
 @Component({
@@ -14,16 +15,28 @@ export class SlidersComponent implements OnInit {
 
   options: Options = {
     floor: 0,
-    ceil: 100000,
-    step: 1000,
+    ceil: 10000,
+    step: 1,
     showSelectionBar: true,
-    translate: (value: number): string => {
-      return  value/1000 + 'k';
-    }};
+/*    translate: (value: number): string => {
+      return  value + 'k';
+    }*/};
 
-  constructor() { }
+  constructor(private apiService : ApiService) { }
 
   ngOnInit(): void {
+  }
+
+  updateSimulation() {
+    this.apiService.updateSimulation(this.outputData.id, this.apiService.convertToInputData(this.outputData) ).subscribe(
+      res => {
+        this.outputData = res;
+      },
+      err => {
+        alert("Ups, something went wrong while sending simulation data.")
+        location.reload();
+      }
+    );
   }
 
 }

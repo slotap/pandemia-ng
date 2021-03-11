@@ -5,7 +5,7 @@ export interface OutputSimulationData {
   title : string;
   population : number;
   infected : number;
-  rFactor : number;
+  reproductionNumber : number;
   mortalityIndex : number;
   daysToHeal : number;
   daysToDie : number;

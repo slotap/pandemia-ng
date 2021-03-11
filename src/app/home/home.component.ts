@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
     title : '',
     population : 0,
     infected : 0,
-    rFactor : 0,
+    reproductionNumber : 0,
     mortalityIndex : 0,
     daysToHeal : 0,
     daysToDie : 0,
